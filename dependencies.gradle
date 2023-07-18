@@ -1,0 +1,49 @@
+repositories {
+    // Other repositories described by default:
+    // CleanroomMC: https://maven.cleanroommc.com
+    /*
+    maven {
+        name 'CurseMaven'
+        url 'https://cursemaven.com'
+        content {
+            includeGroup 'curse.maven'
+        }
+    }
+     */
+    exclusiveContent {
+        forRepository {
+            maven {
+                name 'CurseMaven'
+                url 'https://cursemaven.com'
+            }
+        }
+        filter {
+            includeGroup 'curse.maven'
+        }
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name 'Modrinth'
+                url 'https://api.modrinth.com/maven'
+            }
+        }
+        filter {
+            includeGroup 'maven.modrinth'
+        }
+    }
+    maven {
+        name 'BlameJared Maven'
+        url 'https://maven.blamejared.com'
+    }
+    mavenLocal() // Must be last for caching to work
+}
+
+dependencies {
+    implementation rfg.deobf(project.files("libs/configurator-1.2.5.jar"))
+    compileOnly rfg.deobf("curse.maven:groovyscript-687577:4610037")
+    compileOnly "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.684"
+
+    compileOnly rfg.deobf("curse.maven:botania-225643:3330934")
+    runtimeOnly rfg.deobf("curse.maven:baubles-227083:2518667")
+}
