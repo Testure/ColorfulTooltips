@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-    implementation rfg.deobf(project.files("libs/configurator-1.2.5.jar"))
+    implementation rfg.deobf("curse.maven:configurator-legacy-882624:4651245")
     compileOnly rfg.deobf("curse.maven:groovyscript-687577:4610037")
     compileOnly "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.684"
 
